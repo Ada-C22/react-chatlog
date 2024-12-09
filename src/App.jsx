@@ -4,6 +4,7 @@ import messagesData from './data/messages.json';
 
 
 const App = () => {
+  console.log('Messages data:', messagesData);
   return (
     <div id="App">
       <header>
@@ -12,7 +13,7 @@ const App = () => {
       <main>
         {/* Wave 01: Render one ChatEntry component
         Wave 02: Render ChatLog component */}
-        <ChatLog entries={messagesData.messages} />
+        <ChatLog entries={messagesData} />
       </main>
     </div>
   );

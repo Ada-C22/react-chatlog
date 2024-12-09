@@ -2,9 +2,12 @@ import './ChatEntry.css';
 import TimeStamp from './TimeStamp.jsx';
 import PropTypes from 'prop-types';
 
-const ChatEntry = ({sender, body, timeStamp}) => {
+const ChatEntry = ({ sender, body, timeStamp }) => {
+  
+  const messagesClass = sender === 'Vladimir' ? 'local' : 'remote';
+
   return (
-    <div className="chat-entry local">
+    <div className={`chat-entry ${messagesClass}`}>
       <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
         <p>{body}</p>
@@ -12,7 +15,7 @@ const ChatEntry = ({sender, body, timeStamp}) => {
           <TimeStamp time={timeStamp} />
         </p>
         <button className="like">
-          <p>`🤍`</p>
+          🤍
         </button>
       </section>
     </div>
