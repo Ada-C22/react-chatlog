@@ -3,7 +3,6 @@ import messages from './data/messages.json';
 import ChatLog from './components/ChatLog';
 
 const App = () => {
-  const local = messages[0].sender;
   return (
     <div id="App">
       <header>
@@ -11,7 +10,7 @@ const App = () => {
       </header>
       <main>
         <p>Hi</p>
-        <ChatLog entries={messages} local={local}></ChatLog>
+        <ChatLog entries={messages}></ChatLog>
       </main>
     </div>
   );
