@@ -6,7 +6,7 @@ const ChatLog = (props) => {
   const chatComponents = props.entries.map(message => {
     return (
       <div key={message.id}>
-        <ChatEntry sender={message.sender} body={message.body} timeStamp={message.timeStamp} ></ChatEntry>
+        <ChatEntry sender={message.sender} body={message.body} timeStamp={message.timeStamp} local={props.local}></ChatEntry>
       </div>
     );
   });
@@ -17,5 +17,6 @@ const ChatLog = (props) => {
 
 ChatLog.propTypes = {
   entries: PropTypes.array,
+  local: PropTypes.string,
 };
 export default ChatLog;
