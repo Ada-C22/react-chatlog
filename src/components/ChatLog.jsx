@@ -1,11 +1,12 @@
 import ChatEntry from './ChatEntry';
-import messages from '../data/messages.json';
 
 
 const ChatLog =(props) => {
-  const messageComponents = props.entries.map(message => {
+  const messageComponents = props.entries.map((message, index) => {
     return (
-      <li><ChatEntry id={message.id} sender={message.sender} body={message.body} timeStamp={message.timeStamp}/></li>
+      <li key={index}>
+        <ChatEntry id={message.id} sender={message.sender} body={message.body} timeStamp={message.timeStamp}/>
+      </li>
     );
   });
   return (
