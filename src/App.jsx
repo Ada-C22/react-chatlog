@@ -1,19 +1,20 @@
 import './App.css';
-import ChatEntry from './components/ChatEntry';
+// import ChatEntry from './components/ChatEntry';
+import ChatLog from './components/ChatLog';
 import chatData from './data/messages.json';
 
 const App = () => {
-  const message = chatData.map((chat, index) => {
-    return (
-      <div key={index}>
-        <ChatEntry
-          sender={chat["sender"]}
-          body={chat["body"]}
-          timeStamp={chat["timeStamp"]}
-        ></ChatEntry>
-      </div>
-    );
-  });
+  // const message = chatData.map((chat, index) => {
+  //   return (
+  //     <div key={index}>
+  //       <ChatEntry
+  //         sender={chat["sender"]}
+  //         body={chat["body"]}
+  //         timeStamp={chat["timeStamp"]}
+  //       ></ChatEntry>
+  //     </div>
+  //   );
+  // });
   return (
     <div id="App">
       <header>
@@ -22,7 +23,7 @@ const App = () => {
       <main>
         {/* Wave 01: Render one ChatEntry component
         Wave 02: Render ChatLog component */}
-        {message}
+        <ChatLog chatData={chatData}></ChatLog>
       </main>
     </div>
   );
