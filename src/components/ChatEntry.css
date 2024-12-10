@@ -53,48 +53,48 @@ button {
   top: 0;
 }
 
-/* "local" messages are shown on the left side */
-.chat-entry.local {
+/* "remote" messages are shown on the left side */
+.chat-entry.remote {
   text-align: left;
 }
 
-.chat-entry.local .entry-time {
+.chat-entry.remote .entry-time {
   text-align: right;
 }
 
-.chat-entry.local .entry-bubble::before {
+.chat-entry.remote .entry-bubble::before {
   background-color: #ffffe0;
   left: -18px;
 }
 
-.chat-entry.local .entry-bubble:hover::before {
+.chat-entry.remote .entry-bubble:hover::before {
   background-color: #fefea2;
 }
 
-/* "remote" messages are shown on the right side, in blue */
-.chat-entry.remote {
+/* "local" messages are shown on the right side, in blue */
+.chat-entry.local {
   text-align: right;
 }
 
-.chat-entry.remote .entry-bubble {
+.chat-entry.local .entry-bubble {
   background-color: #e0ffff;
   margin-left: auto;
   margin-right: 0;
 }
 
-.chat-entry.remote .entry-bubble:hover {
+.chat-entry.local .entry-bubble:hover {
   background-color: #a9f6f6;
 }
 
-.chat-entry.remote .entry-time {
+.chat-entry.local .entry-time {
   text-align: left;
 }
 
-.chat-entry.remote .entry-bubble::before {
+.chat-entry.local .entry-bubble::before {
   background-color: #e0ffff;
   right: -18px;
 }
 
-.chat-entry.remote .entry-bubble:hover::before {
+.chat-entry.local .entry-bubble:hover::before {
   background-color: #a9f6f6;
 }

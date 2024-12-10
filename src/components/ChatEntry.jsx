@@ -4,9 +4,10 @@ import TimeStamp from './TimeStamp';
 
 const ChatEntry = (props) => {
   const localOrRemote = props.sender == props.local ? 'chat-entry local' : 'chat-entry remote';
+  const meOrYou = props.sender == props.local ? 'me: ': '';
   return (
     <div className={localOrRemote}>
-      <h2 className="entry-name">{props.sender}</h2>
+      <h2 className="entry-name">{meOrYou}{props.sender}</h2>
       <section className="entry-bubble">
         <p>{props.body}</p>
         <p className="entry-time"><TimeStamp time={props.timeStamp}> </TimeStamp></p>
