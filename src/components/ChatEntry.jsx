@@ -1,4 +1,6 @@
 import './ChatEntry.css';
+// import TimeStamp from './TimeStamp';
+// import 
 
 const ChatEntry = () => {
   return (
@@ -15,6 +17,7 @@ const ChatEntry = () => {
 
 ChatEntry.propTypes = {
   // Fill with correct proptypes
+  // id: Prop
 };
 
 export default ChatEntry;
