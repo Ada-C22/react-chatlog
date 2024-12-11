@@ -9,10 +9,13 @@ const App = () => {
         <h1>Application title</h1>
       </header>
       <main>
-        <p>
-          <ChatEntry data={messagesData}></ChatEntry>
-        </p>
-
+        {messagesData.map((message, index) =>(
+          <ChatEntry
+            key={index}
+            sender={message.sender}
+            body={message.body}
+            timeStamp={message.timeStamp} />
+        ))}
       </main>
     </div>
   );
