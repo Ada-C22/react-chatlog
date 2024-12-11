@@ -3,7 +3,7 @@
 }
 
 #App header {
-  background-color: #222;
+  background-color: grey;
   color: #fff;
   padding-bottom: 0.5rem;
   position: fixed;
@@ -49,6 +49,11 @@
   display: inline-block
 }
 
+.sub-header-container {
+  display: flex;
+  justify-content: space-between;
+}
+
 .red {
   color: #b22222
 }
@@ -71,4 +76,8 @@
 
 .purple {
   color: purple
+}
+
+.white {
+  color:white
 }
