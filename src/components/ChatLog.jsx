@@ -14,6 +14,8 @@ const ChatLog = (props) => {
           liked={message.liked}
           toggleLikes={props.onChatEntryToggleLikes}
           local={props.local}
+          localColor={props.localColor}
+          remoteColor={props.remoteColor}
         ></ChatEntry>
       </div>
     );
@@ -31,5 +33,7 @@ ChatLog.propTypes = {
   })),
   local: PropTypes.string,
   onChatEntryToggleLikes: PropTypes.func,
+  localColor: PropTypes.string,
+  remoteColor:PropTypes.string,
 };
 export default ChatLog;

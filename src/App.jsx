@@ -7,8 +7,8 @@ import ColorComponents from './components/ColorComponents';
 const App = () => {
   const [messagesData, setMessageData] = useState(messagesDataDefault);
   const [likeCount, setLikeCount] = useState(0);
-  const [localColor, setLocalColor] = useState('red');
-  const [remoteColor, setRemoteColor] = useState('blue');
+  const [localColor, setLocalColor] = useState('black');
+  const [remoteColor, setRemoteColor] = useState('black');
   // toggleLikes: id -> function
   // f will update messages array to add a new key of isLiked
   // use setMessageData on new array
@@ -39,15 +39,33 @@ const App = () => {
       remote = message.sender;
     }
   }
+  const setColorCallback = (color, status) => {
+    if (status == 'remote') {
+      setRemoteColor(color);
+    }
+    else if (status == 'local') {
+      setLocalColor(color);
+    }
+  };
 
   return (
     <div id='App'>
       <header>
         <h1><span className={remoteColor}>{remote}</span> and <span className={localColor}>{local}</span> chat</h1>
         <div className='sub-header-container'>
-          <ColorComponents name={remote} color={remoteColor}></ColorComponents>
+          <ColorComponents
+            status='remote'
+            name={remote}
+            color={remoteColor}
+            setColorCallback={setColorCallback}
+          ></ColorComponents>
           <h2>{likeCount} ❤️s</h2>
-          <ColorComponents name={local} color={localColor}></ColorComponents>
+          <ColorComponents
+            status='local'
+            name={local}
+            color={localColor}
+            setColorCallback={setColorCallback}
+          ></ColorComponents>
         </div>
       </header>
       <main>
@@ -55,6 +73,9 @@ const App = () => {
           entries={messagesData}
           onChatEntryToggleLikes={toggleLikes}
           local={local}
+          localColor={localColor}
+          remoteColor={remoteColor}
+          setColorCallback={setColorCallback}
         ></ChatLog>
       </main>
     </div>

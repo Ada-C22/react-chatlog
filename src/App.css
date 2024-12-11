@@ -3,7 +3,7 @@
 }
 
 #App header {
-  background-color: #222;
+  background-color: grey;
   color: #fff;
   padding-bottom: 0.5rem;
   position: fixed;
@@ -17,7 +17,7 @@
   padding-left: 2em;
   padding-right: 2em;
   padding-bottom: 5rem;
-  padding-top: 8rem;
+  padding-top: 10rem;
 }
 
 #App h1 {
@@ -76,4 +76,8 @@
 
 .purple {
   color: purple
+}
+
+.white {
+  color:white
 }

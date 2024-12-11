@@ -7,8 +7,8 @@ const ChatEntry = (props) => {
     props.toggleLikes(props.id);
   };
   const heart = props.liked ? '❤️': '🤍';
-  const localOrRemote = props.sender == props.local ? 'chat-entry local' : 'chat-entry remote';
-
+  const localOrRemote = props.sender == props.local ?
+    `chat-entry local ${props.localColor}` : `chat-entry remote ${props.remoteColor}`;
   return (
     <div className={localOrRemote}>
       <h2 className="entry-name">{props.sender}</h2>
@@ -28,6 +28,8 @@ ChatEntry.propTypes = {
   liked: PropTypes.bool.isRequired,
   local: PropTypes.string,
   toggleLikes:PropTypes.func,
+  localColor: PropTypes.string,
+  remoteColor:PropTypes.string,
 };
 
 export default ChatEntry;
