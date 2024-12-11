@@ -1,45 +1,34 @@
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
-import { useState } from 'react';
 
 const ChatEntry = (props) => {
-  const [isLiked, setIsLiked] = useState(false);
-  // eslint-disable-next-line no-unused-vars
-  const [count, setCount] = useState(0);
-
-  const toggleLikes = () => {
-    setIsLiked(!isLiked);
-    if (!isLiked) { // then it was previously unliked
-      const newCount = 1;
-      setCount(newCount); // then it was liked
-      console.log(newCount);
-    }
-    else {
-      const newCount = 0;
-      setCount(newCount);
-      console.log(newCount);
-    }
+  const heartClicked = () => {
+    props.toggleLikes(props.id);
   };
-  const heart = isLiked ? '❤️': '🤍';
+  console.log(props.liked);
+  const heart = props.liked ? '❤️': '🤍';
   const localOrRemote = props.sender == props.local ? 'chat-entry local' : 'chat-entry remote';
-  const meOrYou = props.sender == props.local ? 'me: ': '';
+
   return (
     <div className={localOrRemote}>
-      <h2 className="entry-name">{meOrYou}{props.sender}</h2>
+      <h2 className="entry-name">{props.sender}</h2>
       <section className="entry-bubble">
         <p>{props.body}</p>
         <p className="entry-time"><TimeStamp time={props.timeStamp}> </TimeStamp></p>
-        <button className="hearts" onClick={toggleLikes}>{heart}</button>
+        <button className="hearts" onClick={heartClicked}>{heart}</button>
       </section>
     </div>
   );
 };
 ChatEntry.propTypes = {
+  id: PropTypes.number,
   sender: PropTypes.string.isRequired,
   body:PropTypes.string,
   timeStamp: PropTypes.string.isRequired,
+  liked: PropTypes.bool.isRequired,
   local: PropTypes.string,
+  toggleLikes:PropTypes.func,
 };
 
 export default ChatEntry;
