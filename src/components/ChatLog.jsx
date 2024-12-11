@@ -22,7 +22,13 @@ const ChatLog = (props) => {
 };
 
 ChatLog.propTypes = {
-  entries: PropTypes.array,
+  entries: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
+    sender: PropTypes.string.isRequired,
+    body:PropTypes.string,
+    timeStamp: PropTypes.string.isRequired,
+    liked: PropTypes.bool.isRequired,
+  })),
   local: PropTypes.string,
   onChatEntryToggleLikes: PropTypes.func,
 };
