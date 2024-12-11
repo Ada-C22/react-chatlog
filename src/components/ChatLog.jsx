@@ -3,7 +3,6 @@ import ChatEntry from './ChatEntry';
 import PropTypes from 'prop-types';
 
 const ChatLog = (props) => {
-  const local = props.entries[0].sender;
   const chatComponents = props.entries.map((message, index) => {
     return (
       <div key={index}>
@@ -14,7 +13,7 @@ const ChatLog = (props) => {
           timeStamp={message.timeStamp}
           liked={message.liked}
           toggleLikes={props.onChatEntryToggleLikes}
-          local={local}
+          local={props.local}
         ></ChatEntry>
       </div>
     );

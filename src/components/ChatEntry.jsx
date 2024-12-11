@@ -6,7 +6,6 @@ const ChatEntry = (props) => {
   const heartClicked = () => {
     props.toggleLikes(props.id);
   };
-  console.log(props.liked);
   const heart = props.liked ? '❤️': '🤍';
   const localOrRemote = props.sender == props.local ? 'chat-entry local' : 'chat-entry remote';
 
@@ -16,7 +15,7 @@ const ChatEntry = (props) => {
       <section className="entry-bubble">
         <p>{props.body}</p>
         <p className="entry-time"><TimeStamp time={props.timeStamp}> </TimeStamp></p>
-        <button className="hearts" onClick={heartClicked}>{heart}</button>
+        <button className="like" onClick={heartClicked}>{heart}</button>
       </section>
     </div>
   );
