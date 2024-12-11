@@ -2,6 +2,7 @@ import './App.css';
 import messagesDataDefault from './data/messages.json';
 import ChatLog from './components/ChatLog';
 import { useState } from 'react';
+import ColorComponents from './components/ColorComponents';
 
 const App = () => {
   const [messagesData, setMessageData] = useState(messagesDataDefault);
@@ -41,7 +42,11 @@ const App = () => {
     <div id='App'>
       <header>
         <h1>{local} and {remote} chat</h1>
-        <div>{likeCount} ❤️s</div>
+        <div className='sub-header-container'>
+          <ColorComponents name={remote}></ColorComponents>
+          <h2>{likeCount} ❤️s</h2>
+          <ColorComponents name={local}></ColorComponents>
+        </div>
       </header>
       <main>
         <ChatLog

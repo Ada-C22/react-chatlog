@@ -49,6 +49,11 @@
   display: inline-block
 }
 
+.sub-header-container {
+  display: flex;
+  justify-content: space-between;
+}
+
 .red {
   color: #b22222
 }
