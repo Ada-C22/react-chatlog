@@ -7,6 +7,8 @@ import ColorComponents from './components/ColorComponents';
 const App = () => {
   const [messagesData, setMessageData] = useState(messagesDataDefault);
   const [likeCount, setLikeCount] = useState(0);
+  const [localColor, setLocalColor] = useState('red');
+  const [remoteColor, setRemoteColor] = useState('blue');
   // toggleLikes: id -> function
   // f will update messages array to add a new key of isLiked
   // use setMessageData on new array
@@ -41,11 +43,11 @@ const App = () => {
   return (
     <div id='App'>
       <header>
-        <h1>{local} and {remote} chat</h1>
+        <h1><span className={remoteColor}>{remote}</span> and <span className={localColor}>{local}</span> chat</h1>
         <div className='sub-header-container'>
-          <ColorComponents name={remote}></ColorComponents>
+          <ColorComponents name={remote} color={remoteColor}></ColorComponents>
           <h2>{likeCount} ❤️s</h2>
-          <ColorComponents name={local}></ColorComponents>
+          <ColorComponents name={local} color={localColor}></ColorComponents>
         </div>
       </header>
       <main>

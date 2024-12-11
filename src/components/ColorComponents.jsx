@@ -7,7 +7,7 @@ const ColorComponents = (props) => {
   };
   return (
     <div className='colorSelectionContainer'>
-      <h3>{props.name} color</h3>
+      <h3 className={props.color}>{props.name}&apos;s color</h3>
       <button className='red' onClick={colorClicked}>🔴</button>
       <button className='orange'>🟠</button>
       <button className='yellow'>🟡</button>
@@ -19,5 +19,6 @@ const ColorComponents = (props) => {
 };
 ColorComponents.propTypes = {
   name: PropTypes.string,
+  color: PropTypes.string,
 };
 export default ColorComponents;
