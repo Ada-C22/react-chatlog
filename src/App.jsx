@@ -3,8 +3,11 @@ import Data from './data/messages.json';
 import ChatLog from './components/ChatLog';
 import { useState } from 'react';
 
+
 function App () {
   const [messageData, setMessageData] = useState(Data);
+
+  const senders = [...new Set(Data.map(message => message.sender))];
 
   const handleLiked = (id) => {
     setMessageData(messageData => messageData.map(message => {
@@ -32,7 +35,7 @@ function App () {
     <>
       <div id="App">
         <header>
-          <h1>ChatLog</h1>
+          <h1>Chat between {senders[0]} and {senders[1]}</h1>
           <h2>{totalLiked}❤️s</h2>
         </header>
         <main>
