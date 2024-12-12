@@ -33,7 +33,7 @@ function App() {
         <p>{likesCount} ❤️s</p>
       </header>
       <main>
-        <ChatLog entries={chatData} onLikedToggle={toggleLiked} likesCount={likesCount}/>
+        <ChatLog entries={chatData} onLikedToggle={toggleLiked}/>
       </main>
     </div>
   );

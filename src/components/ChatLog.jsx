@@ -31,7 +31,6 @@ ChatLog.propTypes = {
     body: PropTypes.string.isRequired,
     timeStamp: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     liked: PropTypes.bool.isRequired,
-
   })),
   onLikedToggle: PropTypes.func.isRequired,
 };
