@@ -1,5 +1,6 @@
 import './App.css';
 import ChatLog from './components/ChatLog';
+import { useState } from 'react';
 
 const DATA = [
   {
@@ -195,13 +196,30 @@ const DATA = [
 
 
 const App = () => {
+  const [entries, setEntries] = useState(DATA);
+  const [likeCount, setLikeCount] = useState(0);
+
+  const updateLikeStatus = (id, liked) => {
+    const updatedEntries = entries.map(entry =>
+      entry.id === id ? { ...entry, liked } : entry
+    );
+    setEntries(updatedEntries);
+
+    const newLikeCount = updatedEntries.filter(entry => entry.liked).length;
+    setLikeCount(newLikeCount);
+  };
+
   return (
     <div id="App">
       <header>
         <h1>Chat between Vladimir and Estragon</h1>
+        <div>{`${likeCount} ❤️s`}</div>
       </header>
       <main>
-        <ChatLog entries={DATA}/>
+        <ChatLog
+          entries={entries}
+          updateLikeStatus={updateLikeStatus}
+        />
       </main>
     </div>
   );
