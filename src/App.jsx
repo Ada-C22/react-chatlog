@@ -24,7 +24,6 @@ function App() {
       });
     });
   };
-  console.log(likesCount);
 
   return (
     <div id="App">
