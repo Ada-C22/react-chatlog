@@ -1,4 +1,4 @@
-// import Chatlog from './Chatlog'
+import Chatlog from './Chatlog'
 import App from './App';
 import { render, screen, fireEvent } from '@testing-library/react';
 
