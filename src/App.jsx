@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 import ChatLog from './components/ChatLog';
 import messages from './data/messages.json';
@@ -7,8 +7,8 @@ const App = () => {
   const [chatEntries, setChatEntries] = useState(messages);
 
   const toggleLike = (id) => {
-    setChatEntries((previousEntries) => 
-      previousEntries.map((entry) => 
+    setChatEntries((previousEntries) =>
+      previousEntries.map((entry) =>
         entry.id == id ? {...entry, liked: !entry.liked } : entry
       )
     );
