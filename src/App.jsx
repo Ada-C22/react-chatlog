@@ -34,7 +34,7 @@ const App = () => {
       </header>
       <main>
         <ChatLog 
-          entries={messages}
+          entries={entries}
           onLikeToggle={toggleLike}
         />
     
