@@ -7,6 +7,9 @@ import { useState } from "react";
 const App = () => {
   const [chatData, setChatData] = useState(data);
 
+  const sendersList = (chatData) => {
+    for (sender in )
+  }
   const handleLike = (id) => {
     setChatData((chatData) =>
       chatData.map((chat) => {
@@ -37,9 +40,7 @@ const App = () => {
         <h2>{totalLikes} ❤️s</h2>
       </header>
       <main>
-        {/* Wave 01: Render one ChatEntry component
-        Wave 02: Render ChatLog component */}
-        <ChatLog chatData={chatData} onLike={handleLike}></ChatLog>
+        <ChatLog entries={chatData} onLike={handleLike}></ChatLog>
       </main>
     </div>
   );
