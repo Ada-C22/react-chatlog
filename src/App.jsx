@@ -9,7 +9,8 @@ import AppTitle from './components/AppTitle.jsx';
 
 const App = () => {
   const [chatsData, setChatData] = useState(chatsJson);
-  const [likeCount,setLikeCount] = useState(0)
+  const [likeCount,setLikeCount] = useState(0);
+  const uniqueParticipants = [...new Set(chatsData.map((chat)=>chat.sender))];
 
 
   const handleLikeClicked = (id) => {
@@ -30,11 +31,15 @@ const App = () => {
   return (
     <div id="App">
       <header>
-        <AppTitle chatsData={chatsData}/>
+        <AppTitle uniqueParticipants={uniqueParticipants}/>
         <h2>{likeCount} ❤️s</h2>
       </header>
       <main>
-        <ChatLog entries={chatsData} chatLikeClicked={handleLikeClicked}></ChatLog>
+        <ChatLog
+          entries={chatsData}
+          chatLikeClicked={handleLikeClicked}
+          uniqueParticipants={uniqueParticipants}
+        />
         {/* Wave 01: Render one ChatEntry component
         Wave 02: Render ChatLog component */}
       </main>

@@ -3,11 +3,9 @@ import './ChatLog.css';
 import ChatEntry from './ChatEntry'
 
 
-const ChatLog = ({entries, chatLikeClicked}) => {
-  console.log(entries);
+const ChatLog = ({entries, chatLikeClicked, uniqueParticipants}) => {
   const getIndividualChats = (entries) => {
     return entries.map((chatEntry) => {
-      console.log(chatEntry);
       return (
         <ChatEntry
           key={chatEntry.id}
@@ -17,6 +15,7 @@ const ChatLog = ({entries, chatLikeClicked}) => {
           timeStamp={chatEntry.timeStamp}
           liked={chatEntry.liked}
           chatLikeClicked={chatLikeClicked}
+          uniqueParticipants={uniqueParticipants}
         />
       );
     });
@@ -36,6 +35,7 @@ ChatLog.propTypes ={
     })
   ).isRequired,
   chatLikeClicked:PropTypes.func.isRequired,
+  uniqueParticipants:PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
 };
 
 
