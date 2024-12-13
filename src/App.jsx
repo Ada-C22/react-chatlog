@@ -21,14 +21,12 @@ const App = () => {
   return (
     <div id="App">
       <header>
-        <h1>Chat thread between Name1 and Name2</h1>
+        <h1>Chatroom: Name1 and Name2</h1>
         <section id='heartWidget'>
           <span className='widget'>{likedCount} ❤️s</span>
         </section>
       </header>
       <main>
-        {/* Wave 01: Render one ChatEntry component
-        Wave 02: Render ChatLog component */}
         <ChatLog entries={chatData} onLiked={handleLikedMessages} />
       </main>
     </div>

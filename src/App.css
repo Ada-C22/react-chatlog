@@ -23,6 +23,7 @@
   font-size: 1.5em;
   text-align: center;
   display: inline-block;
+  padding-top: 0.5em;
 }
 
 #App header section {
@@ -36,11 +37,12 @@
   color: black;
   font-size:0.8em;
   padding: 1em;
+  font-weight: bold;
 }
 
 #App #heartWidget {
   font-size: 1.5em;
-  margin: 1em;
+  margin: 0.25em;
 }
 
 #App span {

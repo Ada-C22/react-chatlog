@@ -9,9 +9,11 @@ const ChatEntry = ({ id, sender, body, timeStamp, liked, onLiked }) => {
 
   const filledHeart = liked ? '❤️' : '🤍';
 
+  const setMessageBubble = id%2 ? 'local' : 'remote';
+
   return (
     <>
-      <div className="chat-entry local">
+      <div className={`chat-entry ${setMessageBubble}`}>
         <h2 className="entry-name">{sender}</h2>
         <section className="entry-bubble">
           <p>{body}</p>
