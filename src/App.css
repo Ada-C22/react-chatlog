@@ -5,7 +5,6 @@
 #App header {
   background-color: #222;
   color: #fff;
-  padding-bottom: 0.5rem;
   position: fixed;
   width: 100%;
   z-index: 100;
@@ -36,13 +35,12 @@
   border-radius: 10px;
   color: black;
   font-size:0.8em;
-  padding-left: 1em;
-  padding-right: 1em;
+  padding: 1em;
 }
 
 #App #heartWidget {
   font-size: 1.5em;
-  margin: 1em
+  margin: 1em;
 }
 
 #App span {
