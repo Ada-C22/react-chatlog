@@ -3,16 +3,16 @@ import './ChatLog.css';
 import ChatEntry from './ChatEntry'
 
 
-const ChatLog = ({chats, chatLikeClicked}) => {
-  console.log(chats);
-  const getIndividualChats = (chats) => {
-    return chats.map((chatEntry) => {
+const ChatLog = ({entries, chatLikeClicked}) => {
+  console.log(entries);
+  const getIndividualChats = (entries) => {
+    return entries.map((chatEntry) => {
       console.log(chatEntry);
       return (
-        <ChatEntry 
+        <ChatEntry
           key={chatEntry.id}
           id={chatEntry.id}
-          name={chatEntry.sender}
+          sender={chatEntry.sender}
           body={chatEntry.body}
           timeStamp={chatEntry.timeStamp}
           liked={chatEntry.liked}
@@ -22,11 +22,11 @@ const ChatLog = ({chats, chatLikeClicked}) => {
     });
   };
   
-  return ( <ul className="chat-log"> {getIndividualChats(chats)} </ul>);
+  return ( <ul className="chat-log"> {getIndividualChats(entries)} </ul>);
 };
 
 ChatLog.propTypes ={
-  chats: PropTypes.arrayOf(
+  entries: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       sender:PropTypes.string.isRequired,

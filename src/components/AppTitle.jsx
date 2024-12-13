@@ -3,35 +3,11 @@ import PropTypes from 'prop-types';
 
 const AppTitle = ({chatsData}) => {
   const uniqueParticipants = [...new Set(chatsData.map((chat)=>chat.sender))];
+  console.log(`test`,uniqueParticipants);
   return (
-    <h1>Chat Between {uniqueParticipants[0]} and {uniqueParticipants[1]}</h1>
+    <h1>Chat {uniqueParticipants.length > 0 ? `Between ${uniqueParticipants[0]} and ${uniqueParticipants[1]}` : ``}</h1>
   );
 };
-// const findAppParticipants = () => {
-//     chatParticipants = []
-//     setChatParticipants((chatJson)=>chatJson.map(chatEntry) => {
-//       let sender = chatEntry.sender; 
-//       if (!chatParticipants.includes(sender)) {
-//         setChatParticipants([...chatParticipants,sender])
-//       };
-//     });
-//     return (chatParticipants) 
-//   };
-
-
-//   const generatAppTitle = () => {
-//     const appParticipants = findAppParticipants()
-//     setAppTitle((appTitle) => appParticipants.map(appTitle) => {
-//       const newLine = ' and ' + participant;
-//       setAppTitle([...appTitle,newLine];
-//       )
-//     return (appTitle); 
-//     })
-
-//   findChatParticipants()
-
-// }
-// }
 
 AppTitle.propTypes = {
   chatsData: PropTypes.arrayOf(

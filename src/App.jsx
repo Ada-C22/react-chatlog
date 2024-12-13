@@ -1,7 +1,7 @@
 import './App.css';
 // import ChatEntry from './components/ChatEntry.jsx';
 import ChatLog from './components/ChatLog.jsx'
-import chatsJson from './data/testmessages.json';
+import chatsJson from './data/messages.json';
 import { useState } from 'react';
 import AppTitle from './components/AppTitle.jsx';
 
@@ -27,7 +27,6 @@ const App = () => {
     }));
   };
 
-
   return (
     <div id="App">
       <header>
@@ -35,7 +34,7 @@ const App = () => {
         <h2>{likeCount} ❤️s</h2>
       </header>
       <main>
-        <ChatLog chats={chatsData} chatLikeClicked={handleLikeClicked}></ChatLog>
+        <ChatLog entries={chatsData} chatLikeClicked={handleLikeClicked}></ChatLog>
         {/* Wave 01: Render one ChatEntry component
         Wave 02: Render ChatLog component */}
       </main>
