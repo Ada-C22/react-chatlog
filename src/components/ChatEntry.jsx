@@ -4,7 +4,7 @@ import TimeStamp from './TimeStamp';
 
 const ChatEntry = ({ id, sender, body, timeStamp, liked, onLikeToggle, isLocal }) => {
   const handleLikeClick = () => {
-    onLikeToggle(sender);
+    onLikeToggle(id);
   };
   return (
     <div className={`chat-entry ${isLocal ? 'local' : 'remote'}`}>
@@ -22,6 +22,7 @@ const ChatEntry = ({ id, sender, body, timeStamp, liked, onLikeToggle, isLocal }
 };
 
 ChatEntry.propTypes = {
+  id: PropTypes.number.isRequired,
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
