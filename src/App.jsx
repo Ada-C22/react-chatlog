@@ -36,6 +36,9 @@ const App = () => {
     }
   };
 
+  // Assuming first sender is current user: optional enhancements
+  const currentSender = chatData[0].sender;
+
   return (
     <div id="App">
       <header>
@@ -43,7 +46,7 @@ const App = () => {
         <h2>{formatLikes(totalLikes)}</h2>
       </header>
       <main>
-        <ChatLog entries={likeData} handleLike={handleLikeData} />
+        <ChatLog entries={likeData} handleLike={handleLikeData} currentUser={currentSender} />
       </main>
     </div>
   );
