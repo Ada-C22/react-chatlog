@@ -3,18 +3,18 @@ import ChatEntry from './ChatEntry';
 import './ChatLog.css';
 
 
-const ChatLog = ({ entries, onLikeToggle }) => {
+const ChatLog = ({ entries, onLikeToggle, localUser }) => {
   return (
     <div className="chat-log">
       {entries.map((entry) => (
         <ChatEntry
           key={entry.id}
-          id={entry.id}
           sender={entry.sender}
           body={entry.body}
           timeStamp={entry.timeStamp}
           liked={entry.liked}
           onLikeToggle={onLikeToggle}
+          isLocal={entry.sender === localUser}
         />
       ))}
     </div>
@@ -33,6 +33,7 @@ ChatLog.propTypes = {
     })
   ).isRequired,
   onLikeToggle: PropTypes.func.isRequired,
+  localUser: PropTypes.string.isRequired,
 };
 
 export default ChatLog;

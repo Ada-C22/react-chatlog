@@ -5,6 +5,7 @@ import messages from './data/messages.json';
 
 const App = () => {
   const [chatEntries, setChatEntries] = useState(messages);
+  const localUser = 'Vladimir';
 
   const toggleLike = (id) => {
     setChatEntries((previousEntries) =>
@@ -22,7 +23,7 @@ const App = () => {
         <p>{totalLikes} ❤️s</p>
       </header>
       <main>
-        <ChatLog entries={chatEntries} onLikeToggle={toggleLike}/>
+        <ChatLog entries={chatEntries} onLikeToggle={toggleLike} localUser={localUser}/>
       </main>
     </div>
   );
