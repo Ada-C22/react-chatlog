@@ -1,16 +1,12 @@
 import { useState } from 'react';
 import './App.css';
 import ChatEntry from './components/ChatEntry';
+import ChatLog from './components/ChatLog';
+import messages from './data/messages.json'
 
 
 
-const chatData = {
-  "id": 1,
-  "sender":"Vladimir",
-  "body":"why are you arguing with me",
-  "timeStamp":"2018-05-29T22:49:06+00:00",
-  "liked": false
-}
+const LOG = messages;
 
 
 const App = () => {
@@ -19,10 +15,10 @@ const App = () => {
   return (
     <div id="App">
       <header>
-        <h1>Application title</h1>
+        <h1>Chat Between Vladimir and Estragon </h1>
       </header>
       <main>
-        <ChatEntry sender={chatData.sender} body={chatData.body} timeStamp={chatData.timeStamp}/>
+        <div>{<ChatLog entries={LOG}/>}</div>
       </main>
     </div>
   );
