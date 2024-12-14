@@ -6,6 +6,7 @@ import { useState } from "react";
 
 const App = () => {
   const [chatData, setChatData] = useState(data);
+  const [fontColor, setFontColor] = useState(null);
 
   const senderList = [];
   const sendersList = (chatData) => {
@@ -49,12 +50,21 @@ const App = () => {
   const totalLikes = calculateLikes(chatData);
 
   const colors = ["red", "orange", "yellow", "green", "blue", "purple"];
-
+  const onFontColor = (color) => {
+    setFontColor(color);
+  };
+  console.log(fontColor);
   const T = () => {
     const divs = [];
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < colors.length; i++) {
       const divClass = `${colors[i]} test`;
-      divs.push(<div key={i} className={divClass}></div>);
+      divs.push(
+        <div
+          key={i}
+          className={divClass}
+          onClick={() => onFontColor(colors[i])}
+        ></div>
+      );
     }
     return <div className="color-container">{divs}</div>;
   };
@@ -73,6 +83,7 @@ const App = () => {
           entries={chatData}
           onLike={handleLike}
           localSender={local}
+          fontColor={fontColor}
         ></ChatLog>
       </main>
     </div>
