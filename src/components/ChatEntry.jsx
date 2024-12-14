@@ -7,7 +7,6 @@ const ChatEntry = ({ id, sender, body, timeStamp, liked, onLikeChat }) => {
     onLikeChat(id);
   };
 
-
   return (
     <div className="chat-entry local">
       <h2 className="entry-name">{sender}</h2>

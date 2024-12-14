@@ -16,10 +16,22 @@ const App = () => {
     }));
   };
 
+  const calculateTotalLikeCount = (chatData) => {
+    let totalLikes = 0;
+    for (const chat of chatData) {
+      if (chat.liked === true){
+        totalLikes += 1;
+      }
+    }
+    return totalLikes;
+  };
+
+  const totalLikes = calculateTotalLikeCount(chatData);
+
   return (
     <div id="App">
       <header>
-        <h1>Application title</h1>
+        <h1>Total Number of Likes: {totalLikes} ❤️s </h1>
       </header>
       <main>
         <ChatLog

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const ChatLog = ({ entries, onLikeChat }) => {
   const chatEntryComponents = entries.map((chatEntry, index) => {
     return (
-      <li key={index}>
+      <li key={chatEntry.id}>
         <ChatEntry
           id={chatEntry.id}
           sender={chatEntry.sender}
