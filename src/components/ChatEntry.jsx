@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 
 const ChatEntry = ({id, sender, body, timeStamp, liked, onLikeToggle}) => {
+  const alignmentClass = sender.toLowerCase() === 'vladimir' ? 'local' : 'remote';
+
   return (
-    <div className={`chat-entry ${liked ? 'liked' : ''}`}>
+    <div className={`chat-entry ${alignmentClass} ${liked ? 'liked' : ''}`}>
       <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
         <p>{body}</p>
