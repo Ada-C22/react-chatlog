@@ -53,7 +53,6 @@ const App = () => {
   const onFontColor = (color) => {
     setFontColor(color);
   };
-  console.log(fontColor);
   const T = () => {
     const divs = [];
     for (let i = 0; i < colors.length; i++) {
@@ -62,6 +61,9 @@ const App = () => {
         <div
           key={i}
           className={divClass}
+          style={{
+            backgroundColor: colors[i],
+          }}
           onClick={() => onFontColor(colors[i])}
         ></div>
       );
@@ -73,10 +75,13 @@ const App = () => {
     <div id="App">
       <header>
         <h1>Chat Between {sendersTitle}</h1>
-        <h2>test</h2>
         <h2>{totalLikes} ❤️s</h2>
-        <h2>test</h2>
-        <T />
+        <div className="color-selection-container">
+          <h2>{senderList[0]}&apos;s color</h2>
+          <T />
+          <h2>{senderList[1]}&apos;s color</h2>
+          <T />
+        </div>
       </header>
       <main>
         <ChatLog

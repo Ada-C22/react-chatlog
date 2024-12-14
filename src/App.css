@@ -75,12 +75,19 @@
 
 .test {
   border: 1px solid white;
-  height: 50px;
-  width: 50px;
+  height: 25px;
+  width: 25px;
   border-radius: 100%;
 }
 
 .color-container {
   display: flex;
   flex-direction: row;
+  gap: 5px;
+}
+
+.color-selection-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }

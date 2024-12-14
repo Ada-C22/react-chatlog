@@ -1,7 +1,7 @@
 import ChatEntry from "./ChatEntry";
 import PropTypes from "prop-types";
 
-const ChatLog = ({ entries, onLike, localSender }) => {
+const ChatLog = ({ entries, onLike, localSender, fontColor }) => {
   const message = entries.map((chat) => {
     return (
       <ChatEntry
@@ -13,6 +13,7 @@ const ChatLog = ({ entries, onLike, localSender }) => {
         liked={chat.liked}
         onLike={onLike}
         localSender={localSender}
+        fontColor={fontColor}
       ></ChatEntry>
     );
   });
@@ -32,6 +33,7 @@ ChatLog.propTypes = {
   ).isRequired,
   onLike: PropTypes.func.isRequired,
   localSender: PropTypes.string.isRequired,
+  fontColor: PropTypes.string.isRequired,
 };
 
 export default ChatLog;

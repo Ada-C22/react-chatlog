@@ -17,7 +17,7 @@ const ChatEntry = (props) => {
     <div className={senderPlacement}>
       <h2 className="entry-name">{props.sender}</h2>
       <section className="entry-bubble">
-        <p>{props.body}</p>
+        <p className={props.fontColor}>{props.body}</p>
         <p className="entry-time">
           <TimeStamp time={props.timeStamp}></TimeStamp>
         </p>
@@ -37,6 +37,7 @@ ChatEntry.propTypes = {
   liked: PropTypes.bool.isRequired,
   onLike: PropTypes.func.isRequired,
   localSender: PropTypes.string.isRequired,
+  fontColor: PropTypes.string.isRequired,
 };
 
 export default ChatEntry;
