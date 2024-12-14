@@ -5,10 +5,10 @@ import messages from './data/messages.json';
 
 
 
-const App = () => {
+function App() {
   const [chatLiked, setChatLiked] = useState(messages);
 
-  const clickLikedButtom = (id) => {
+  const handleLikeButtom = (id) => {
     setChatLiked(chat => {
       return chat.map(chat => {
         if (chat.id === id) {
@@ -26,7 +26,11 @@ const App = () => {
         <h1>Application title</h1>
       </header>
       <main>
-        <div>{<ChatLog entries={chatLiked} onLiked={clickLikedButtom} />}</div>
+        <div>{
+          <ChatLog
+            entries={chatLiked}
+            onLiked={handleLikeButtom} />}
+        </div>
       </main>
 
     </div>
