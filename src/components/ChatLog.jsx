@@ -1,7 +1,7 @@
 import ChatEntry from "./ChatEntry";
 import PropTypes from "prop-types";
 
-const ChatLog = ({ entries, onLike }) => {
+const ChatLog = ({ entries, onLike, localSender }) => {
   const message = entries.map((chat) => {
     return (
       <ChatEntry
@@ -12,6 +12,7 @@ const ChatLog = ({ entries, onLike }) => {
         timeStamp={chat.timeStamp}
         liked={chat.liked}
         onLike={onLike}
+        localSender={localSender}
       ></ChatEntry>
     );
   });
@@ -30,6 +31,7 @@ ChatLog.propTypes = {
     })
   ).isRequired,
   onLike: PropTypes.func.isRequired,
+  localSender: PropTypes.string.isRequired,
 };
 
 export default ChatLog;
