@@ -7,8 +7,17 @@ const ChatEntry = ({ id, sender, body, timeStamp, liked, onLikeChat }) => {
     onLikeChat(id);
   };
 
+  const chatEntryClass = () => {
+    if (sender === 'Vladimir') {
+      return 'local';
+    }
+    else {
+      return 'remote';
+    }
+  };
+
   return (
-    <div className="chat-entry local">
+    <div className={`chat-entry ${chatEntryClass()}`}>
       <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
         <p>{body}</p>
