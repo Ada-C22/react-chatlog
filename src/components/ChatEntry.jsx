@@ -1,20 +1,33 @@
+import PropTypes from 'prop-types';
+import './TimeStamp';
 import './ChatEntry.css';
+import TimeStamp from './TimeStamp';
 
-const ChatEntry = () => {
+function ChatEntry({ sender, body, timeStamp, liked, onLikeToggle, isLocal }) {
   return (
-    <div className="chat-entry local">
-      <h2 className="entry-name">Replace with name of sender</h2>
+    <div className={`chat-entry ${isLocal ? 'local' : 'remote'} ${liked ? 'liked' : ''}`}>
+      <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
-        <p>Replace with body of ChatEntry</p>
-        <p className="entry-time">Replace with TimeStamp component</p>
-        <button className="like">🤍</button>
+        <p>{body}</p>
+        <TimeStamp time={timeStamp}/>
+        <button
+          className="like"
+          onClick={onLikeToggle}
+        >
+          {liked ? '❤️' : '🤍'}
+        </button>
       </section>
     </div>
   );
-};
+}
 
 ChatEntry.propTypes = {
-  // Fill with correct proptypes
+  sender: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+  timeStamp: PropTypes.string.isRequired,
+  liked: PropTypes.bool.isRequired,
+  onLikeToggle: PropTypes.func.isRequired,
+  isLocal: PropTypes.bool.isRequired,
 };
 
 export default ChatEntry;

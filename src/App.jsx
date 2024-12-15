@@ -1,17 +1,33 @@
+import { useState} from 'react';
 import './App.css';
+import messagesData from './data/messages.json';
+import ChatLog from './components/ChatLog';
 
-const App = () => {
+function App() {
+  const [entries, setEntries] = useState(messagesData);
+
+  const toggleLike = (id) => {
+    setEntries(entries => entries.map(entry => {
+      if (entry.id === id) {
+        return { ...entry, liked: !entry.liked};
+      } else {
+        return entry;
+      }
+    }));
+  };
+
   return (
     <div id="App">
       <header>
-        <h1>Application title</h1>
+        <h1>{entries.filter(entry => entry.liked).length} ❤️s</h1>
       </header>
       <main>
-        {/* Wave 01: Render one ChatEntry component
-        Wave 02: Render ChatLog component */}
+        <ChatLog
+          entries={entries}
+          onLikeToggle={toggleLike}/>
       </main>
     </div>
   );
-};
+}
 
 export default App;
