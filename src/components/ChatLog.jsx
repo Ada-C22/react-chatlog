@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import './ChatLog.css';
 import ChatEntry from './ChatEntry';
 
-const ChatLog = ({entries}) => {
+const ChatLog = ({entries, onLike, onUnlike}) => {
   return (
     <div>
       {entries.map((entry) => (
@@ -11,6 +11,8 @@ const ChatLog = ({entries}) => {
           sender={entry.sender}
           body={entry.body}
           timeStamp={entry.timeStamp}
+          onLike={onLike}
+          onUnlike={onUnlike}
         />
       ))}
     </div>
@@ -19,6 +21,8 @@ const ChatLog = ({entries}) => {
 
 ChatLog.propTypes = {
   entries: PropTypes.arrayOf(PropTypes.elementType.isRequired),
+  onLike: PropTypes.func.isRequired,
+  onUnlike: PropTypes.func.isRequired,
 };
 
 export default ChatLog;
