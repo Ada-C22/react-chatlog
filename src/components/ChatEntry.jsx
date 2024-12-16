@@ -16,7 +16,7 @@ const ChatEntry = ({id, sender, body, timeStamp, liked, onLike}) => {
       <section className="entry-bubble">
         <p>{body}</p>
         <p className="entry-time"><TimeStamp time={timeStamp}/></p>
-        <button className="liked" onClick={likedMessage}>{messageWithHeart}</button>
+        <button className="like" onClick={likedMessage}>{messageWithHeart}</button>
       </section>
     </div>
   );
