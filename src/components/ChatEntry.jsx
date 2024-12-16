@@ -21,8 +21,8 @@ const ChatEntry = ({sender, body, timeStamp, id, liked, onLiked}) => {
             <TimeStamp time = {timeStamp} />
           </p>
           <button
-          className="like"
-          onClick={onLikeClicked}>
+            className="like"
+            onClick={onLikeClicked}>
             {heart}
           </button>
         </section>
@@ -37,6 +37,7 @@ ChatEntry.propTypes = {
   timeStamp: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
   liked: PropTypes.bool.isRequired,
+  onLiked: PropTypes.func,
 };
 
 export default ChatEntry;
