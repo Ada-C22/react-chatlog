@@ -13,6 +13,7 @@ const ChatLog = (props) => {
           timeStamp={entries.timeStamp}
           liked={entries.liked}
           onLiked={props.onLiked}
+          localSender={props.localSender}
         ></ChatEntry>
       </ul>
     );
@@ -34,11 +35,12 @@ ChatLog.propTypes = {
       sender: PropTypes.string.isRequired,
       body: PropTypes.string,
       timeStamp: PropTypes.string.isRequired,
-      liked: PropTypes.bool.isRequired
+      liked: PropTypes.bool.isRequired,
     })
   ).isRequired,
 
   onLiked: PropTypes.func.isRequired,
+  localSender: PropTypes.string.isRequired,
 };
 
 export default ChatLog;
