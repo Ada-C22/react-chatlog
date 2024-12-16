@@ -36,7 +36,7 @@ function App () {
       <div id="App">
         <header>
           <h1>Chat between {senders[0]} and {senders[1]}</h1>
-          <h2>{totalLiked}❤️s</h2>
+          <h2>{totalLiked} ❤️s</h2>
         </header>
         <main>
           <ChatLog entries = {messageData} onLiked={handleLiked}/>
