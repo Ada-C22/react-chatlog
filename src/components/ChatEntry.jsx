@@ -35,9 +35,9 @@ ChatEntry.propTypes = {
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
   liked: PropTypes.bool.isRequired,
-  onLike: PropTypes.func.isRequired,
-  localSender: PropTypes.string.isRequired,
-  fontColor: PropTypes.string.isRequired,
+  onLike: PropTypes.func,
+  localSender: PropTypes.string,
+  fontColor: PropTypes.string,
 };
 
 export default ChatEntry;
