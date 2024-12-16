@@ -2,7 +2,7 @@ import './ChatLog.css';
 import ChatEntry from './ChatEntry';
 import PropTypes from 'prop-types';
 
-const ChatLog = ({ entries, onUpdateLike, colors }) => {
+const ChatLog = ({ entries, onUpdateLike, colors = {} }) => {
   return (
     <div className="chat-log">
       {entries.map((message) => (
@@ -33,10 +33,6 @@ ChatLog.propTypes = {
   ).isRequired,
   onUpdateLike: PropTypes.func.isRequired,
   colors: PropTypes.objectOf(PropTypes.string)
-};
-
-ChatLog.defaultProps = {
-  colors: {}
 };
 
 export default ChatLog;

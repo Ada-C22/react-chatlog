@@ -2,7 +2,7 @@ import './ChatEntry.css';
 import TimeStamp from './TimeStamp.jsx';
 import PropTypes from 'prop-types';
 
-const ChatEntry = ({ id, sender, body, timeStamp, liked, onUpdateLike, color }) => {
+const ChatEntry = ({ id, sender, body, timeStamp, liked, onUpdateLike, color = undefined }) => {
   const messagesClass = sender === 'Vladimir' ? 'local' : 'remote';
 
   return (
@@ -32,10 +32,6 @@ ChatEntry.propTypes = {
   liked: PropTypes.bool.isRequired,
   onUpdateLike: PropTypes.func.isRequired,
   color: PropTypes.string
-};
-
-ChatEntry.defaultProps = {
-  color: undefined
 };
 
 export default ChatEntry;
