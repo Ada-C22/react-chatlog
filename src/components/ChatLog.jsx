@@ -19,7 +19,7 @@ const ChatLog = ({entries, onLiked}) => {
 
   return (
     <div className='chat-log'>
-      {chatEntryComponents(entries)}
+      {chatEntryComponents}
     </div>
   );
 };
