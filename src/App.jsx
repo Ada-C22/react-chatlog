@@ -1,15 +1,60 @@
+import { useState } from 'react';
 import './App.css';
+import ChatLog from './components/ChatLog';
+import messages from './data/messages.json';
 
-const App = () => {
+
+const calculateTotalLikeCount = (chat) => {
+  return chat.reduce((total, chat) => {
+    return total + (chat.liked ? 1 : 0);
+  }, 0);
+};
+
+const localSender = messages[0].sender;
+let remoteSender = 'Unknown';
+
+for (const message of messages) {
+  if (message.sender !== localSender) {
+    remoteSender = message.sender;
+    break; // Stop once other sender is found
+  }
+}
+
+
+const App =() => {
+  const [chat, setChat] = useState(messages);
+
+  const handleLikeButtom = (id) => {
+    setChat(chat => {
+      return chat.map(chat => {
+        if (chat.id === id) {
+          return { ...chat, liked: !chat.liked };
+        } else {
+          return chat;
+        }
+      });
+    });
+  };
+  const totalLikes = calculateTotalLikeCount(chat);
   return (
     <div id="App">
       <header>
-        <h1>Application title</h1>
+        <h1>Chat Between {localSender} and {remoteSender}</h1>
+        <section>
+          <h1>{`${totalLikes} ❤️s`}</h1>
+        </section>
       </header>
       <main>
-        {/* Wave 01: Render one ChatEntry component
-        Wave 02: Render ChatLog component */}
+        <div>{
+          <ChatLog
+            entries={chat}
+            onLiked={handleLikeButtom}
+            localSender={localSender}
+            likes={totalLikes} />}
+
+        </div>
       </main>
+
     </div>
   );
 };
