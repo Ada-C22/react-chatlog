@@ -6,12 +6,16 @@ import ChatLog from './components/ChatLog';
 const App = () => {
   const [chatMessages, setChatMessages] = useState(messages);
 
-  const toggleLike = (id) => {
-    const updatedMessages = chatMessages.map((message) =>
-      message.id === id ? { ...message, liked: !message.liked } : message
+  const handleLikeToggle = (id) => {
+    setChatMessages((prevMessages) =>
+      prevMessages.map((message) =>
+        message.id === id
+          ? { ...message, liked: !message.liked }
+          : message
+      )
     );
-    setChatMessages(updatedMessages);
   };
+
   const totalLikes = chatMessages.filter((message) => message.liked).length;
   const person1 = messages[0].sender;
   const person2 = messages[1].sender;
@@ -25,8 +29,8 @@ const App = () => {
       </header>
       <main>
         <ChatLog
-          entries={messages}
-          onToggleLike={toggleLike}
+          entries={chatMessages}
+          onToggleLike={handleLikeToggle}
         />
       </main>
     </div>
