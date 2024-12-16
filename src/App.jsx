@@ -1,17 +1,16 @@
-import { useState } from 'react';
 import './App.css';
 import ChatLog from './components/ChatLog';
 import ColorChoice from './components/ColorChoice';
 import messagesData from './data/messages.json';
+import { useState } from 'react';
 
 const App = () => {
   const [messages, setMessages] = useState(messagesData);
   const [colors, setColors] = useState({
-    Vladimir: '#ffffe0',  // Default yellow
-    Estragon: '#e0ffff'   // Default blue
+    Vladimir: '#ffffe0',
+    Estragon: '#e0ffff'
   });
 
-  // Get unique participants
   const participants = [...new Set(messages.map(msg => msg.sender))];
 
   const updateLikeStatus = (messageId, newLikedStatus) => {
@@ -52,7 +51,7 @@ const App = () => {
         <ChatLog 
           entries={messages} 
           onUpdateLike={updateLikeStatus}
-          colors={colors}
+          colors={colors} 
         />
       </main>
     </div>

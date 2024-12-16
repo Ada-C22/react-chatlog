@@ -1,4 +1,3 @@
-// src/components/ColorChoice.jsx
 import PropTypes from 'prop-types';
 
 const ColorChoice = ({ user, currentColor, onColorChange }) => {

@@ -14,7 +14,7 @@ const ChatLog = ({ entries, onUpdateLike, colors }) => {
           timeStamp={message.timeStamp}
           liked={message.liked}
           onUpdateLike={onUpdateLike}
-          color={colors[message.sender]}
+          color={colors?.[message.sender]}
         />
       ))}
     </div>
@@ -32,7 +32,11 @@ ChatLog.propTypes = {
     })
   ).isRequired,
   onUpdateLike: PropTypes.func.isRequired,
-  color: PropTypes.string.isRequired
+  colors: PropTypes.objectOf(PropTypes.string)
+};
+
+ChatLog.defaultProps = {
+  colors: {}
 };
 
 export default ChatLog;

@@ -10,7 +10,7 @@ const ChatEntry = ({ id, sender, body, timeStamp, liked, onUpdateLike, color }) 
       <h2 className="entry-name">{sender}</h2>
       <section 
         className="entry-bubble"
-        style={{ backgroundColor: color }}
+        style={color ? { backgroundColor: color } : {}}
       >
         <p>{body}</p>
         <p className="entry-time">
@@ -31,7 +31,11 @@ ChatEntry.propTypes = {
   timeStamp: PropTypes.string.isRequired,
   liked: PropTypes.bool.isRequired,
   onUpdateLike: PropTypes.func.isRequired,
-  color: PropTypes.string.isRequired
+  color: PropTypes.string
+};
+
+ChatEntry.defaultProps = {
+  color: undefined
 };
 
 export default ChatEntry;
