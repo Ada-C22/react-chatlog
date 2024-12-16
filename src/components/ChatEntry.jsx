@@ -5,6 +5,7 @@ import TimeStamp from './TimeStamp';
 const ChatEntry = (props) => {
   const likedButtonClicked = () => {
     props.onLikedToggle(props.id);
+    props.calculateLikes(props.liked);
   };
 
   const heartColor = props.liked ? '❤️' : '🤍';
@@ -31,6 +32,9 @@ ChatEntry.propTypes = {
   timeStamp: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   liked: PropTypes.bool.isRequired,
   onLikedToggle: PropTypes.func.isRequired,
+  likesCount: PropTypes.number,
+  setLikesCount: PropTypes.func,
+  calculateLikes: PropTypes.func,
 };
 
 export default ChatEntry;

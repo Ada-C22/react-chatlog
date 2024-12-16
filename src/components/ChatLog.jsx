@@ -13,7 +13,10 @@ const ChatLog =(props) => {
           body={message.body}
           timeStamp={message.timeStamp}
           liked={message.liked}
-          onLikedToggle={props.onLikedToggle}/>
+          onLikedToggle={props.onLikedToggle}
+          likesCount={props.likesCount}
+          setLikesCount={props.setLikesCount}
+          calculateLikes={props.calculateLikes}/>
       </li>
     );
   });
@@ -33,6 +36,9 @@ ChatLog.propTypes = {
     liked: PropTypes.bool.isRequired,
   })),
   onLikedToggle: PropTypes.func.isRequired,
+  likesCount: PropTypes.number,
+  setLikesCount: PropTypes.func,
+  calculateLikes: PropTypes.func,
 };
 
 

@@ -12,17 +12,16 @@ function App() {
     setChatData(chats => {
       return chats.map(chat => {
         if (chat.id === chatEntryId) {
-          if (chat.liked === false) {
-            setLikesCount((likesCount) => likesCount + 1);
-          } else {
-            setLikesCount((likesCount)=> likesCount - 1);
-          }
           return { ...chat, liked: !chat.liked };
         } else {
           return chat;
         }
       });
     });
+  };
+
+  const calculateLikes = (isLiked) => {
+    setLikesCount((likesCount) => isLiked ? likesCount - 1 : likesCount + 1);
   };
 
   return (
@@ -32,10 +31,10 @@ function App() {
         <p>{likesCount} ❤️s</p>
       </header>
       <main>
-        <ChatLog entries={chatData} onLikedToggle={toggleLiked}/>
+        <ChatLog entries={chatData} onLikedToggle={toggleLiked} likesCount={likesCount} setLikesCount={setLikesCount} calculateLikes={calculateLikes}/>
       </main>
     </div>
   );
-};
+}
 
 export default App;
