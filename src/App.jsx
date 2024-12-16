@@ -1,12 +1,11 @@
 import './App.css';
 import ChatLog from './components/ChatLog';
-import ChatEntry from './components/ChatEntry';
+// import ChatEntry from './components/ChatEntry';
 import React, {useState} from 'react';
 import messages from './data/messages.json';
 
 
 const App = () => {
-  // const firstMessage = messages[0];  // Get the first message for testing
   const [entries, setEntries] = useState(messages);
 
   const toggleLike = (id) => {
