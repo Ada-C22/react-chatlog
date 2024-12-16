@@ -9,7 +9,7 @@ const ChatEntry = ({id, sender, body, timeStamp, liked, onLikeToggle}) => {
   };
 
   const locateSender = () => {
-    return (sender === 'Estragon')? 'local': 'remote';
+    return (sender === 'Estragon')? 'remote': 'local';
   };
 
   return (
