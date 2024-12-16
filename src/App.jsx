@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import './App.css';
-// import ChatEntry from './components/ChatEntry';
 import ChatLog from './components/ChatLog';
 import messages from './data/messages.json'
 
@@ -40,7 +39,6 @@ const App = () => {
           <ChatLog 
             entries={entries}
             onLikeToggle={toggleLike}
-            // localUser={localUser}
           />
         </div>
       </main>

@@ -1,7 +1,6 @@
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
-import { useState } from 'react';
 
 const ChatEntry = ({id, sender, body, timeStamp,liked, onLikeToggle}) => {
 
