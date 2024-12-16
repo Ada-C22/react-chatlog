@@ -1,24 +1,26 @@
-import { fireEvent } from '@testing-library/react';
 import ChatEntry from './ChatEntry';
 import PropTypes from 'prop-types';
 
 const ChatLog = ({ entries }) => {
+  const chatEntries = entries.map((entry) => {
+    return(
+      <ChatEntry
+        key={entry.id}
+        sender={entry.sender}
+        body={entry.body}
+        timeStamp={entry.timeStamp}
+      />
+    );
+  });
   return (
-    <div>
-      {entries.map((entry) => (
-        <ChatEntry
-          key={entry.id}
-          sender={entry.sender}
-          body={entry.body}
-          timeStamp={entry.timeStamp}
-        />
-      ))};
-    </div>
+    <>
+      {chatEntries}
+    </>
   );
 };
 
 ChatLog.propTypes = {
-  entries: PropTypes.arrayOf(
+  entry: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       sender: PropTypes.string.isRequired,
