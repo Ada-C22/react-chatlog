@@ -1,52 +1,133 @@
 #App {
-  background-color: #87cefa;
+  background-color: white;
+
+  header {
+    background-color: #e9ecef;
+    color: black;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    text-align: center;
+    align-items: center;
+  }
+
+  main {
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-bottom: 5rem;
+    padding-top: 10rem;
+  }
+
+  h1 {
+    font-size: 1.5em;
+    text-align: center;
+    display: inline-block;
+    padding-top: 0.5em;
+  }
+
+  header section {
+    background-color: #e0ffff;
+  }
+
+  .widget {
+    display: inline-block;
+    line-height: 0.5em;
+    border-radius: 10px;
+    color: black;
+    font-size:0.8em;
+    padding: 1em;
+    font-weight: bold;
+  }
+  
+  #heartWidget {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    margin: 0.25em;
+  }
+
+  span {
+    display: inline-block;
+  }
 }
 
-#App header {
-  background-color: #222;
-  color: #fff;
-  padding-bottom: 0.5rem;
-  position: fixed;
-  width: 100%;
-  z-index: 100;
-  text-align: center;
-  align-items: center;
-}
+#AppDark {
+  background-color: #343a40;
 
-#App main {
-  padding-left: 2em;
-  padding-right: 2em;
-  padding-bottom: 5rem;
-  padding-top: 10rem;
-}
+  header {
+    background-color: #222;
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    text-align: center;
+    align-items: center;
+  }
 
-#App h1 {
-  font-size: 1.5em;
-  text-align: center;
-  display: inline-block;
-}
+  main {
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-bottom: 5rem;
+    padding-top: 10rem;
+  }
 
-#App header section {
-  background-color: #e0ffff;
-}
+  h1 {
+    font-size: 1.5em;
+    text-align: center;
+    display: inline-block;
+    padding-top: 0.5em;
+  }
 
-#App .widget {
-  display: inline-block;
-  line-height: 0.5em;
-  border-radius: 10px;
-  color: black;
-  font-size:0.8em;
-  padding-left: 1em;
-  padding-right: 1em;
-}
+  h2 {
+    color: white;
+  }
 
-#App #heartWidget {
-  font-size: 1.5em;
-  margin: 1em
-}
+  .entry-bubble p {
+    color: white;
+  }
 
-#App span {
-  display: inline-block
+  .local .entry-bubble {
+    background-color: #212529;
+  }
+
+  .local .entry-bubble::before {
+    background-color: #212529;
+  }
+
+  .remote .entry-bubble {
+    background-color: #2a6f97;
+  }
+
+  .remote .entry-bubble::before {
+    background-color: #2a6f97;
+  }
+
+  header section {
+    background-color: #00568a;
+  }
+
+  .widget {
+    display: inline-block;
+    line-height: 0.5em;
+    border-radius: 10px;
+    color: white;
+    font-size:0.8em;
+    padding: 1em;
+    font-weight: bold;
+  }
+  
+  #heartWidget {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    margin: 0.25em;
+  }
+
+  span {
+    display: inline-block
+  }
 }
 
 .red {
