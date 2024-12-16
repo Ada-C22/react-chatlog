@@ -22,6 +22,17 @@ const ChatLog = ({ entries, onUpdateLike, colors }) => {
 };
 
 ChatLog.propTypes = {
-  // ... existing propTypes ...
-  colors: PropTypes.objectOf(PropTypes.string).isRequired
+  entries: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      sender: PropTypes.string.isRequired,
+      body: PropTypes.string.isRequired,
+      timeStamp: PropTypes.string.isRequired,
+      liked: PropTypes.bool.isRequired
+    })
+  ).isRequired,
+  onUpdateLike: PropTypes.func.isRequired,
+  color: PropTypes.string.isRequired
 };
+
+export default ChatLog;
