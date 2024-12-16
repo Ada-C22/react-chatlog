@@ -1,16 +1,48 @@
 import './App.css';
+import Data from './data/messages.json';
+import ChatLog from './components/ChatLog';
+import { useState } from 'react';
 
-const App = () => {
+
+function App () {
+  const [messageData, setMessageData] = useState(Data);
+
+  const senders = [...new Set(Data.map(message => message.sender))];
+
+  const handleLiked = (id) => {
+    setMessageData(messageData => messageData.map(message => {
+      if (message.id === id) {
+        return {...message, liked: !message.liked};
+      } else {
+        return message;
+      };
+    }));
+  };
+
+  const calcTotalLiked = (messageData) => {
+    let total = 0;
+    for (const message of messageData) {
+      if (message.liked) {
+        total += 1;
+      }
+    };
+    return total;
+  };
+
+  const totalLiked = calcTotalLiked(messageData);
+
   return (
-    <div id="App">
-      <header>
-        <h1>Application title</h1>
-      </header>
-      <main>
-        {/* Wave 01: Render one ChatEntry component
-        Wave 02: Render ChatLog component */}
-      </main>
-    </div>
+    <>
+      <div id="App">
+        <header>
+          <h1>Chat between {senders[0]} and {senders[1]}</h1>
+          <h2>{totalLiked} ❤️s</h2>
+        </header>
+        <main>
+          <ChatLog entries = {messageData} onLiked={handleLiked}/>
+        </main>
+      </div>
+    </>
   );
 };
 
