@@ -12,7 +12,7 @@ const ChatEntry = (props) => {
   };
 
   return (
-    <div className="chat-entry local" id={props.id}>
+    <div className={props.sender == 'Vladimir' ? 'chat-entry local' : 'chat-entry remote'} id={props.id}>
       <h2 className="entry-name">{props.sender}</h2>
       <section className="entry-bubble">
         <p>{props.body}</p>
