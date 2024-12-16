@@ -5,13 +5,14 @@ import './ChatLog.css';
 
 const ChatLog= (props) => {
   const{
-    entries
+    entries,
+    handleClick
   } = props;
 
   return (
     <div className='chat-log'>
       {
-        entries.length === 0 ? [] : entries.map((entry) => <ChatEntry key={entry.id} {...entry}/>)
+        entries.length === 0 ? [] : entries.map((entry) => <ChatEntry key={entry.id} {...entry} handleClick={handleClick}/>)
       }
     </div>
   );
@@ -19,7 +20,8 @@ const ChatLog= (props) => {
 
 ChatLog.propTypes = {
   // Fill with correct proptypes
-  entries: PropTypes.array.isRequired
+  entries: PropTypes.array.isRequired,
+  handleClick: PropTypes.func.isRequired,
 };
 
 export default ChatLog;
