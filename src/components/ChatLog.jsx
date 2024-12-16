@@ -1,5 +1,5 @@
-import ChatEntry from "./ChatEntry";
-import PropTypes from "prop-types";
+import ChatEntry from './ChatEntry';
+import PropTypes from 'prop-types';
 
 const ChatLog = (props) => {
   const chatEntryComponents = props.entries.map(chatEntry => {
@@ -10,6 +10,8 @@ const ChatLog = (props) => {
         sender={chatEntry.sender}
         body={chatEntry.body}
         timeStamp={chatEntry.timeStamp}
+        liked={chatEntry.liked}
+        onToggleLiked={props.onToggleChatEntryLiked}
       ></ChatEntry>
     );
   });
@@ -24,8 +26,10 @@ ChatLog.propTypes = {
       sender: PropTypes.string.isRequired,
       body: PropTypes.string.isRequired,
       timeStamp: PropTypes.string.isRequired,
+      liked: PropTypes.bool.isRequired
     })
   ),
+  onToggleChatEntryLiked: PropTypes.func.isRequired
 };
 
 export default ChatLog;
