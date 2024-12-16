@@ -9,8 +9,6 @@ const ChatEntry = ({id, sender, body, timeStamp, liked, onLikeToggle}) => {
   };
 
   const likeStatus = liked? '❤️': '🤍';
-  console.log(likeStatus);
-  console.log(liked);
 
   return (
     <div className="chat-entry local">
