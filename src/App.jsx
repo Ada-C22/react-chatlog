@@ -1,8 +1,8 @@
-import "./App.css";
+import './App.css';
 // import ChatEntry from './components/ChatEntry';
-import ChatLog from "./components/ChatLog";
-import data from "./data/messages.json";
-import { useState } from "react";
+import ChatLog from './components/ChatLog';
+import data from './data/messages.json';
+import { useState } from 'react';
 
 const App = () => {
   const [chatData, setChatData] = useState(data);
@@ -15,7 +15,7 @@ const App = () => {
         senderList.push(chat.sender);
       }
     }
-    let title = "";
+    let title = '';
     for (const sender of senderList) {
       title += `${sender} and `;
     }
@@ -49,11 +49,11 @@ const App = () => {
 
   const totalLikes = calculateLikes(chatData);
 
-  const colors = ["red", "orange", "yellow", "green", "blue", "purple"];
+  const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
   const onFontColor = (color) => {
     setFontColor(color);
   };
-  const T = () => {
+  const Colors = () => {
     const divs = [];
     for (let i = 0; i < colors.length; i++) {
       const divClass = `${colors[i]} test`;
@@ -68,19 +68,19 @@ const App = () => {
         ></div>
       );
     }
-    return <div className="color-container">{divs}</div>;
+    return <div className='color-container'>{divs}</div>;
   };
 
   return (
     <div id="App">
       <header>
         <h1>Chat Between {sendersTitle}</h1>
-        <h2>{totalLikes} ❤️s</h2>
         <div className="color-selection-container">
-          <h2>{senderList[0]}&apos;s color</h2>
-          <T />
-          <h2>{senderList[1]}&apos;s color</h2>
-          <T />
+          <h2>{totalLikes} ❤️s</h2>
+          <div className="color-selection-group">
+            <h2>Select Color:</h2>
+            <Colors />
+          </div>
         </div>
       </header>
       <main>

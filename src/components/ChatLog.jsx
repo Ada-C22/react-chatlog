@@ -1,5 +1,5 @@
-import ChatEntry from "./ChatEntry";
-import PropTypes from "prop-types";
+import ChatEntry from './ChatEntry';
+import PropTypes from 'prop-types';
 
 const ChatLog = ({ entries, onLike, localSender, fontColor }) => {
   const message = entries.map((chat) => {
