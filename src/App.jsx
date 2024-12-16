@@ -76,7 +76,6 @@ const App = () => {
           local={local}
           localColor={localColor}
           remoteColor={remoteColor}
-          setColorCallback={setColorCallback}
         ></ChatLog>
       </main>
     </div>
