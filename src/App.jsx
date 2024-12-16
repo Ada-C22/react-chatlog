@@ -1,28 +1,33 @@
+import { useState } from 'react';
 import './App.css';
-import ChatEntry from './components/ChatEntry';
+import messages from './data/messages.json';
+import ChatLog from './components/ChatLog';
 
 const App = () => {
-  const chatData =
-  {
-    sender: 'Vladimir',
-    body: 'why are you arguing with me',
-    timeStamp: '2018-05-29T22:49:06+00:00'
+  const [chatMessages, setChatMessages] = useState(messages);
+
+  const toggleLike = (id) => {
+    const updatedMessages = chatMessages.map((message) =>
+      message.id === id ? { ...message, liked: !message.liked } : message
+    );
+    setChatMessages(updatedMessages);
   };
-  const firstChat = chatData[0];
+  const totalLikes = chatMessages.filter((message) => message.liked).length;
+  const person1 = messages[0].sender;
+  const person2 = messages[1].sender;
 
   return (
     <div id="App">
       <header>
         <h1>Chatlog</h1>
+        <h2>{`Chat between ${person1} and ${person2}`}</h2>
+        <p>{totalLikes} ❤️s</p>
       </header>
       <main>
-        <ChatEntry
-          sender={firstChat.sender}
-          body={firstChat.body}
-          timeStamp={firstChat.timeStamp}
+        <ChatLog
+          entries={messages}
+          onToggleLike={toggleLike}
         />
-        {/* Wave 01: Render one ChatEntry component
-        Wave 02: Render ChatLog component */}
       </main>
     </div>
   );
