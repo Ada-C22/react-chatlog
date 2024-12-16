@@ -6,7 +6,7 @@ import messages from './data/messages.json';
 
 
 function App() {
-  const firstMessage = messages[0];  // Get the first message for testing
+  // const firstMessage = messages[0];  // Get the first message for testing
 
 
   return (
@@ -16,12 +16,14 @@ function App() {
       </header>
       <main>
         {/* Wave 01: Render one ChatEntry component */}
-        <ChatEntry
+        {/* <ChatEntry
           sender={firstMessage.sender}
           body={firstMessage.body}
           timeStamp={firstMessage.timeStamp}
-        />
-        {/* Wave 02: Render ChatLog component */}
+        /> */}
+        <ChatLog
+        //  {/* Wave 02: Render ChatLog component */}
+          entries={messages}/>
       </main>
     </div>
   );
