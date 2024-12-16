@@ -33,7 +33,7 @@ const App = () => {
     <div id="App">
       <header>
         <h1>Application title</h1>
-        <h2>Total Number of Likes: {totalLikes} ❤️s</h2>
+        <p>Total Number of Likes: {totalLikes} ❤️s</p>
       </header>
       <main>
         <ChatLog
