@@ -2,7 +2,10 @@
 
 **Learn Topics: React Components and Props required for this wave**
 
-Update the `ChatEntry` and `App` components to display a single chat message bubble with the message text and relative timestamp, plus the sender's name above it.  
+Update the `ChatEntry` and `App` components to display a 
+single chat message bubble with the message text and 
+relative timestamp, plus 
+the sender's name above it.  
 
 A good way to test this code as you write it would be to take the first chat message from the [JSON data file](../src/data/messages.json) and use it as the data for the `ChatEntry` component.
 
