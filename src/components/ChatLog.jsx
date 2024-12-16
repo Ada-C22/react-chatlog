@@ -20,7 +20,13 @@ const ChatLog = ({entries, onLike, onUnlike}) => {
 };
 
 ChatLog.propTypes = {
-  entries: PropTypes.arrayOf(PropTypes.elementType.isRequired),
+  entries: PropTypes.arrayOf(
+    PropTypes.shape({
+      sender: PropTypes.string.isRequired,
+      body: PropTypes.string.isRequired,
+      timeStamp: PropTypes.node.isRequired,
+    }).isRequired
+  ).isRequired,
   onLike: PropTypes.func.isRequired,
   onUnlike: PropTypes.func.isRequired,
 };
