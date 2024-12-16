@@ -13,7 +13,7 @@ describe('Wave 03: clicking like button and rendering App', () => {
     fireEvent.click(buttons[10]);
 
     // Assert
-    const countScreen = screen.getByText(/3 ❤️s/);
+    const countScreen = screen.getByText(/Likes: 3/);
     expect(countScreen).not.toBeNull();
   });
 
