@@ -42,7 +42,7 @@ function App() {
       <header>
         <h1>Chat Between {localSender} and {remoteSender}</h1>
         <section>
-          <h1>{totalLikes}❤️`s</h1>
+          <h1>{`${totalLikes} ❤️s`}</h1>
         </section>
       </header>
       <main>
