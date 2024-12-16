@@ -2,8 +2,6 @@ import PropTypes from 'prop-types';
 import './ChatLog.css';
 import ChatEntry from './ChatEntry';
 
-
-// const ChatLog = (props) => {
 const ChatLog = ({entries, onLikeBtnToggle}) =>{
   const chatComponents = entries.map((entry) => {
     return(
@@ -24,8 +22,6 @@ const ChatLog = ({entries, onLikeBtnToggle}) =>{
     </>
   );
 };
-
-
 
 ChatLog.propTypes = {
 // Implement

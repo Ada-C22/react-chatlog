@@ -10,8 +10,6 @@ function App() {
 
 
   const toggleLikeBtnClick= (id) => {
-    console.log(`Currently liked message id: ${id}`);
-
     // Refactoring to incorporate func passing state update
     const newEntries = entries.map(entry=>{
       if (entry.id == id){
