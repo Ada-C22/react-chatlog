@@ -8,17 +8,19 @@ const ChatEntry = ({id, sender, body, timeStamp, liked, onLikeToggle}) => {
     onLikeToggle(id);
   };
 
-  const likeStatus = liked? '❤️': '🤍';
+  const locateSender = () => {
+    return (sender === 'Estragon')? 'local': 'remote';
+  };
 
   return (
-    <div className="chat-entry local">
+    <div className={`chat-entry ${locateSender()}`}>
       <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
         <p>{body}</p>
         <p className="entry-time">
           <TimeStamp time={timeStamp}/>
         </p>
-        <button className='like' onClick={likeButtonClicked}>{likeStatus}</button>
+        <button className='like' onClick={likeButtonClicked}>{liked? '❤️': '🤍'}</button>
       </section>
     </div>
   );
