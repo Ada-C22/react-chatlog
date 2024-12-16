@@ -1,13 +1,24 @@
 import './ChatEntry.css';
+import PropTypes from 'prop-types';
+import TimeStamp from './TimeStamp';
 
-const ChatEntry = () => {
+const ChatEntry = (props) => {
+  const likedButtonClicked = () => {
+    props.onLikedToggle(props.id);
+    props.calculateLikes(props.liked);
+  };
+
+  const heartColor = props.liked ? '❤️' : '🤍';
+
   return (
     <div className="chat-entry local">
-      <h2 className="entry-name">Replace with name of sender</h2>
+      <h2 className="entry-name">{props.sender}</h2>
       <section className="entry-bubble">
-        <p>Replace with body of ChatEntry</p>
-        <p className="entry-time">Replace with TimeStamp component</p>
-        <button className="like">🤍</button>
+        <p>{props.body}</p>
+        <div>
+          <p className="entry-time"><TimeStamp time={props.timeStamp}/></p>
+          <button className="like" onClick={likedButtonClicked} >{heartColor}</button>
+        </div>
       </section>
     </div>
   );
@@ -15,6 +26,15 @@ const ChatEntry = () => {
 
 ChatEntry.propTypes = {
   // Fill with correct proptypes
+  id: PropTypes.number.isRequired,
+  sender: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+  timeStamp: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  liked: PropTypes.bool.isRequired,
+  onLikedToggle: PropTypes.func.isRequired,
+  likesCount: PropTypes.number,
+  setLikesCount: PropTypes.func,
+  calculateLikes: PropTypes.func,
 };
 
 export default ChatEntry;
