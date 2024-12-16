@@ -3,22 +3,22 @@ import PropTypes from 'prop-types';
 import ChatEntry from './ChatEntry';
 
 
-const ChatLog = ({entries}) => {
-    const getChatLogJSX = (entries) => {
-        return entries.map((entry) => {
-            return (
-                <ChatEntry 
+const ChatLog = ({entries, onLikeToggle}) => {
+    return (
+        <div className="chat-log">
+            {entries.map(entry => (
+                <ChatEntry
                     key={entry.id}
                     id={entry.id}
                     sender={entry.sender}
                     body={entry.body}
                     timeStamp={entry.timeStamp}
                     liked={entry.liked}
+                    onLikeToggle={onLikeToggle}
                 />
-            );
-        });
-    };
-    return <div className="chat-log">{getChatLogJSX(entries)}</div> 
+            ))}
+        </div>
+    );
 };
 
 ChatLog.propTypes = {
@@ -31,6 +31,7 @@ ChatLog.propTypes = {
         liked: PropTypes.bool.isRequired,
       })
     ).isRequired,
+    onLikeToggle: PropTypes.func.isRequired,
   };
   
   export default ChatLog;
