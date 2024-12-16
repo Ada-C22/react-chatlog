@@ -3,7 +3,7 @@ import TimeStamp from './TimeStamp';
 import PropTypes from 'prop-types';
 
 const ChatEntry = (props) => {
-const toggleLikeButton = () => {
+  const toggleLikeButton = () => {
     props.toggleLiked(props.id);
   };
 
