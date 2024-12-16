@@ -1,19 +1,28 @@
 import './App.css';
-import ChatEntry from './components/ChatEntry';
 import ChatLog from './components/ChatLog';
-import chatdata from './data/messages.json';
+import message from './data/messages.json';
+import {useState} from 'react';
+
 const App = () => {
+  const [chatData, setChatData] = useState(message);
+  const togglelikes = (id) => {
+    setChatData( chatData => chatData.map(chat => {
+      if (chat.id === id){
+        return {...chat, liked: !chat.liked};
+      }else {
+        return chat;
+      }
+    }));
+  };
+  const totalLikes = chatData.filter((chat) => chat.liked).length;
   return (
     <div id="App">
       <header>
-        <h1>Application title</h1>
+        <h1>Chat Log</h1>
+        <p>{totalLikes} ❤️s </p>
       </header>
       <main>
-        {/* Wave 01: Render one ChatEntry component
-        Wave 02: Render ChatLog component */}
-        < ChatEntry />
-        <ChatLog entries={chatdata} />
-
+        <ChatLog entries={chatData} chatClicked={togglelikes}/>
       </main>
     </div>
   );
