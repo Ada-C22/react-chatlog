@@ -3,7 +3,7 @@ import './ChatLog.css';
 import ChatEntry from './ChatEntry.jsx';
 
 
-const ChatLog = ({entries}) => {
+const ChatLog = ({entries, onLike}) => {
   const ChatToEntry = (entries) => {
     return entries.map((entry) =>{
       return (
@@ -13,7 +13,8 @@ const ChatLog = ({entries}) => {
           sender={entry.sender}
           body={entry.body}
           timeStamp={entry.timeStamp}
-          liked={entry.liked} />
+          liked={entry.liked}
+          onLike={onLike} />
       );
     });
   };
@@ -27,8 +28,9 @@ ChatLog.propTypes = {
       sender: PropTypes.string.isRequired,
       body: PropTypes.string.isRequired,
       timeStamp: PropTypes.string.isRequired,
-      liked: PropTypes.bool.isRequired,})
-  )
+      liked: PropTypes.bool.isRequired,
+    })).isRequired,
+    onLike: PropTypes.func.isRequired,
 };
 
 export default ChatLog;
