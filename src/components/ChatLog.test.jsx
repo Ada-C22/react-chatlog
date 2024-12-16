@@ -41,8 +41,10 @@ const LOG = [
 ];
 
 describe('Wave 02: ChatLog', () => {
+  const mockOnUpdateLike = () => { };
+  
   beforeEach(() => {
-    render(<ChatLog entries={LOG} />);
+    render(<ChatLog entries={LOG} onUpdateLike={mockOnUpdateLike} />);
   });
 
   test('renders without crashing and shows all the names', () => {
@@ -66,7 +68,7 @@ describe('Wave 02: ChatLog', () => {
   });
 
   test('renders an empty list without crashing', () => {
-    const element = render(<ChatLog entries={[]} />);
+    const element = render(<ChatLog entries={[]} onUpdateLike={mockOnUpdateLike} />);
     expect(element).not.toBeNull();
   });
 });
