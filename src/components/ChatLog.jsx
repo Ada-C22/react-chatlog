@@ -34,4 +34,4 @@ ChatLog.propTypes = {
     onLikeToggle: PropTypes.func.isRequired,
   };
   
-  export default ChatLog;
+export default ChatLog;

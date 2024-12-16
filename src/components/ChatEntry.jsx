@@ -5,25 +5,24 @@ import { useState } from 'react';
 
 const ChatEntry = ({id, sender, body, timeStamp,liked, onLikeToggle}) => {
 
-  // const buttonHeart = liked ? '❤️ ' : '🤍'; 
-
   const handleHeartClick = () => {
-    console.log(`Heart clicked for ID: ${id}`);
     onLikeToggle(id);
-    // setIsLiked((isLiked) => !isLiked);
-    // GLOBAL_LIKE_COUNT += isLiked? 1: -1;
   };
 
+  let isLocalUser = false
 
+  if (sender === 'Vladimir') {
+    isLocalUser = true;
+  } 
 
   return (
-    <div className="chat-entry local">
+    <div className={isLocalUser?'chat-entry local':'chat-entry remote'}>
       <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
         <p className='body'>{body}</p>
         <TimeStamp time = {timeStamp}></TimeStamp>
         <button 
-          className='like'
+          className='like' //className from test
           onClick={handleHeartClick}>
             {liked ? '❤️' : '🤍'}
         </button>
@@ -40,6 +39,7 @@ ChatEntry.propTypes = {
   timeStamp: PropTypes.string.isRequired,
   liked: PropTypes.bool.isRequired,
   onLikeToggle: PropTypes.func.isRequired,
+  
 };
 
 export default ChatEntry;

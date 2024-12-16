@@ -5,51 +5,43 @@ import ChatLog from './components/ChatLog';
 import messages from './data/messages.json'
 
 
-
+// import data from messages.json
 const LOG = messages;
-
-// export let GLOBAL_LIKE_COUNT = 0;
 
 
 const App = () => {
   const [entries, setEntries] = useState(LOG);
 
-  // update chat entry
-  
+  // update chat entry => like change
   const toggleLike = (id) => {
     const updatedEntries = entries.map(entry => {
       if (entry.id === id) {
-        
-          // update like count if liked is true
+          // toggle like
           return {... entry, liked: !entry.liked};
-        
       } else {
         // no change
         return entry;
       }
     });
-    console.log('Updated entries:', updatedEntries);
+    // update entries
     setEntries(updatedEntries);
   }
 
   const totalLikes = entries.filter(entry => entry.liked).length;
   
-
   return (
     <div id="App">
       <header>
-        <h1>Chat Between Vladimir and Estragon </h1>
+        <h1>Chat Between {entries[0].sender} and {entries[1].sender} </h1>
         <h2 id="heartWidget">{totalLikes} ❤️s </h2>
-
       </header>
       <main>
         <div>
           <ChatLog 
             entries={entries}
             onLikeToggle={toggleLike}
+            // localUser={localUser}
           />
-          
-
         </div>
       </main>
     </div>
