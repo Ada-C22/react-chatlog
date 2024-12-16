@@ -72,3 +72,11 @@
 .purple {
   color: purple
 }
+
+.like {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
