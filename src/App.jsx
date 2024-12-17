@@ -1,14 +1,31 @@
 import './App.css';
+import ChatLog from './components/ChatLog';
+// import ChatEntry from './components/ChatEntry';
+import React, {useState} from 'react';
+import messages from './data/messages.json';
+
 
 const App = () => {
+  const [entries, setEntries] = useState(messages);
+
+  const toggleLike = (id) => {
+    const updatedEntries = entries.map((entry) =>
+      entry.id === id ? {...entry, liked: !entry.liked } : entry
+    );
+    setEntries(updatedEntries);
+  };
+
+  const totalLikes = entries.filter((entry) => entry.liked).length;
+
   return (
     <div id="App">
       <header>
-        <h1>Application title</h1>
+        <h1>ChatLog App</h1>
+        <h2>{totalLikes} ❤️s</h2>
       </header>
       <main>
-        {/* Wave 01: Render one ChatEntry component
-        Wave 02: Render ChatLog component */}
+        <ChatLog
+          entries={entries} onToggleLike={toggleLike}/>
       </main>
     </div>
   );
