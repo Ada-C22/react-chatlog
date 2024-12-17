@@ -3,13 +3,20 @@ import './ChatLog.css';
 import ChatEntry from './ChatEntry';
 
 const ChatLog = ({messagesData, onLikeToggle, owner}) => {
+  if (messagesData === undefined) return <></>;
+
   const feed = messagesData.map( msg => {
+    const entries = {
+      id : msg.id,
+      sender : msg.sender,
+      body : msg.body,
+      timeStamp : msg.timeStamp,
+      liked : msg.liked,
+      onLikeToggle : onLikeToggle,
+      owner : owner
+    };
     return (
-      <ChatEntry
-        message={msg}
-        key={msg.id}
-        onLikeToggle={onLikeToggle}
-        owner={owner}/>
+      <ChatEntry entries={entries} key={'entry' + msg.id}/>
     );
   });
 

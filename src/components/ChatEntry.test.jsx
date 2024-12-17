@@ -4,14 +4,14 @@ import '@testing-library/jest-dom';
 
 describe('Wave 01: ChatEntry', () => {
   beforeEach(() => {
+    const entries = { id: 7,
+      sender: 'Joe Biden',
+      body: 'Get out by 8am.  I\'ll count the silverware',
+      timeStamp: '2018-05-18T22:12:03Z',
+      liked: false
+    }
     render(
-      <ChatEntry
-        id={7}
-        sender="Joe Biden"
-        body="Get out by 8am.  I'll count the silverware"
-        timeStamp="2018-05-18T22:12:03Z"
-        liked={false}
-      />
+      <ChatEntry entries={entries}/>
     );
   });
 
