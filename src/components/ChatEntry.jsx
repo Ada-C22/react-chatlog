@@ -1,20 +1,38 @@
+import PropTypes from 'prop-types';
 import './ChatEntry.css';
+import TimeStamp from './TimeStamp';
 
-const ChatEntry = () => {
+const ChatEntry = ({entries}) => {
+  const { id, sender, body, timeStamp, liked, onLikeToggle, owner} = entries;
+  const senderLocation = (sender == owner) ? 'local' : 'remote';
+  const className = `chat-entry ${senderLocation}`;
+
+  const handleClick = () => {
+    onLikeToggle(id);
+  };
+
   return (
-    <div className="chat-entry local">
-      <h2 className="entry-name">Replace with name of sender</h2>
+    <div className={className}>
+      <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
-        <p>Replace with body of ChatEntry</p>
-        <p className="entry-time">Replace with TimeStamp component</p>
-        <button className="like">🤍</button>
+        <p>{body}</p>
+        <p className="entry-time">{TimeStamp(timeStamp)}</p>
+        <button className="like" onClick={handleClick}>{liked ? '❤️' : '🤍'}</button>
       </section>
     </div>
   );
 };
 
 ChatEntry.propTypes = {
-  // Fill with correct proptypes
+  entries: PropTypes.objectOf({
+    id: PropTypes.number.isRequired,
+    sender: PropTypes.string.isRequired,
+    body: PropTypes.string.isRequired,
+    timeStamp: PropTypes.string.isRequired,
+    liked: PropTypes.bool.isRequired,
+  }),
+  onLikeToggle: PropTypes.func.isRequired,
+  owner: PropTypes.string
 };
 
 export default ChatEntry;
