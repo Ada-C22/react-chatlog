@@ -8,7 +8,6 @@ import messages from './data/messages.json';
 const App = () => {
   const [entries, setEntries] = useState(messages);
 
-  // Function to toggle the 'liked' state
   const handleLikeToggle = (id) => {
     setEntries((prevEntries) =>
       prevEntries.map((entry) =>
@@ -19,7 +18,6 @@ const App = () => {
     );
   };
 
-  // Calculate how many messages are liked
   const likedCount = entries.filter((entry) => entry.liked).length;
 
   return (
@@ -29,7 +27,6 @@ const App = () => {
       </header>
       <main>
         <h2>{likedCount} ❤️s</h2>
-        {/* Pass the entries and the handleLikeToggle function to ChatLog */}
         <ChatLog entries={entries} onLikeToggle={handleLikeToggle} />
       </main>
     </div>
@@ -37,16 +34,7 @@ const App = () => {
 };
 
 App.propTypes = {
-  entries: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      sender: PropTypes.string.isRequired,
-      body: PropTypes.string.isRequired,
-      timeStamp: PropTypes.string.isRequired,
-      liked: PropTypes.bool.isRequired
-    })
-  ),
-  onLikeToggle: PropTypes.func.isRequired
+  onLikeToggle: PropTypes.func.isRequired,
 };
 
 export default App;
