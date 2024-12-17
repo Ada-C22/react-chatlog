@@ -35,7 +35,7 @@
   line-height: 0.5em;
   border-radius: 10px;
   color: black;
-  font-size:0.8em;
+  font-size: 0.8em;
   padding-left: 1em;
   padding-right: 1em;
 }
@@ -71,4 +71,33 @@
 
 .purple {
   color: purple
+}
+
+.color-selection-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+}
+
+.color-selection-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.color-container {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  justify-content: center;
+}
+
+.test {
+  border: 1px solid white;
+  height: 25px;
+  width: 25px;
+  border-radius: 100%;
 }
